@@ -1,0 +1,46 @@
+<div class="row">
+  <!-- formulario do calculo -->
+  <div class="col-xs-6">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          <h1>Calcule MMC</h1>
+        </div>
+      </div>
+
+      <div class="form-group" [class.has-error]="statusCampo">
+        <label for="inputEmail3" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10" style="height:20px">
+          <input type="login" class="form-control" id="inputLogin" placeholder="Digite assim: 2,4,8" #conteudoMMC>
+          <p class="help-block" *ngIf="statusCampo">{{ msgStatusCampo }}</p>
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button  (click)="calcularMmc(conteudoMMC.value)" class="btn btn-default">Calcular</button>
+          <button  (click)="limparMmc()" class="btn btn-default">Limpar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Aqui é onde aparece o calculo-->
+  <div class="col-xs-6">
+    <table>
+      <tr *ngFor="let obj of objmmc">
+        <td class="parede relacao">{{ obj.relacao }}</td>
+        <td class="denominador">{{ obj.denominador }}</td>
+      </tr>
+      <tr>
+        <td [ngClass]="{teto:teto, semteto:!teto}"></td>
+        <td [ngClass]="{teto:teto, semteto:!teto}">{{ resultadoMMC}}</td>
+      </tr>
+    </table>
+    <p>
+      {{ detalheCalculo }}
+    </p>
+  </div>
+</div>

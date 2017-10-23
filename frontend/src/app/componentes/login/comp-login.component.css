@@ -1,0 +1,15 @@
+@font-face {
+     font-family: 'FFFTusj';
+     src: url('fonts/FFF_Tusj.eot'); /*Para IE*/;
+}
+
+@font-face {
+     font-family: 'FFFTusj';
+     src: url('fonts/FFF_Tusj.ttf'); /*Para os demais navegadores*/;
+}
+
+h1{
+  font-family: 'FFFTusj';
+  font-size: 50px;
+  text-align: left;
+}

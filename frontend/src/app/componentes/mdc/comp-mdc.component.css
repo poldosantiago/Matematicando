@@ -1,0 +1,33 @@
+td{
+  padding: 5px;
+  font-size: 25px;
+}
+
+td.parede{
+  border-right: 1px solid black;
+  transition-delay: 2s;
+}
+
+td.relacao{
+  color: red;
+}
+
+td.denominador{
+  color: #33CCFF;
+}
+
+td.teto{
+  border-top: 3px solid black;
+}
+
+td.semteto{
+  border-top: 0px solid black;
+}
+
+tr.chao{
+    padding-top:3px;
+}
+
+p.help-block{
+  font-size: 10px;
+}

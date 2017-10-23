@@ -1,0 +1,48 @@
+<div class="row">
+  <!-- formulario do calculo -->
+  <div class="col-xs-6">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          <h1>Calcule MDC</h1>
+        </div>
+      </div>
+
+      <div class="form-group" [class.has-error]="statusCampo">
+        <label for="inputEmail3" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10" style="height:20px">
+          <input type="login" class="form-control" id="inputLogin" placeholder="Digite assim: 2,4,8" #conteudoMDC>
+          <p class="help-block" *ngIf="statusCampo">{{ msgStatusCampo }}</p>
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button  (click)="calcularMDC(conteudoMDC.value)" class="btn btn-default">Calcular</button>
+          <button  (click)="limparMDC()" class="btn btn-default">Limpar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+  <!-- Aqui é onde aparece o calculo-->
+  <div class="col-xs-6">
+    <table>
+      <tr *ngFor="let obj of objmdc">
+        <td class="parede relacao">{{ obj.relacao }}</td>
+        <td class="denominador">{{ obj.denominador }}</td>
+        <td *ngIf="obj.criterioMDC"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:#2E8B57"></span></td>
+      </tr>
+      <tr>
+        <td [ngClass]="{teto:teto, semteto:!teto}"></td>
+        <td [ngClass]="{teto:teto, semteto:!teto}">{{ resultadoMMC}}</td>
+      </tr>
+    </table>
+    <p>
+      {{ detalheCalculo }}
+    </p>
+  </div>
+</div>

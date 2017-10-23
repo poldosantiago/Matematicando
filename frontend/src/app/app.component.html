@@ -1,0 +1,50 @@
+<div id="tudo">
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="">Matematicando</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <!-- lado esquerdo do menu -->
+      <ul class="nav navbar-nav"></ul>
+
+      <!-- lado direito do menu -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Calculos <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Calculos</li>
+            <li><a routerLink="/formulas/mmc">MMC</a></li>
+            <li><a routerLink="/formulas/mdc">MDC</a></li>
+            <li><a routerLink="/formulas/equacao2">Equação 2º grau</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Outros</li>
+            <li><a href="#">Calculo kkk</a></li>
+            <li><a href="#">Calculo haha</a></li>
+          </ul>
+        </li>
+
+        <li><a routerLink="/sobremim">Sobre mim</a></li>
+
+        <li routerLinkActive="active"><a routerLink="/cadastro"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Cadastro</a></li>
+        <li routerLinkActive="active"  *ngIf="!logado"><a routerLink="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
+
+        <li routerLinkActive="active" *ngIf="logado"><a>Olá, <strong>{{nomeLogin}}</strong>!</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+  </nav>
+
+  <br />
+
+
+  <router-outlet (logado)="onLogado($event)"></router-outlet>
+</div>

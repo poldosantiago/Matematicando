@@ -1,0 +1,69 @@
+<div class="row">
+  <!-- formulario do calculo -->
+  <div class="col-xs-1"></div>
+
+  <div class="col-xs-5">
+    <form class="form-horizontal">
+
+      <div class="form-group" >
+        <label for="" class="col-sm-4 control-label"></label>
+        <h1>Equação 2º grau</h1>
+        <br />
+
+        <div class="col-sm-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">A</span>
+            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" #valorA>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">B</span>
+            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" #valorB>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">C</span>
+            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" #valorC>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p class="help-block" *ngIf="statusCampo">{{ msgStatusCampo }}</p>
+        <div class="col-sm-offset-0 col-sm-10">
+          <button (click)="calcularEquacao2(valorA.value,valorB.value,valorC.value)" class="btn btn-default">Calcular</button>
+          <button (click)="limparEquacao2()" class="btn btn-default">Limpar</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- Aqui é onde aparece o calculo-->
+  <div class="col-xs-6">
+    <div *ngIf="statusCampoCalculo == 'equacaoOK'">
+      <h1>Resultado</h1>
+      <p class="equacao" *ngFor="let linha of txtCalcDelta">
+        {{ linha }}
+      </p>
+      <p *ngFor="let linha of txtCalcCoeficiente">
+        {{ linha }}
+      </p>
+    </div>
+
+    <br />
+
+    <div *ngIf="statusCampoCalculo == 'deltaNegativo'">
+      <h1>Resultado</h1>
+      <p >
+        {{ txtMensagemCalculo }}
+      </p>
+    </div>
+
+  </div>
+</div>
